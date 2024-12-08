@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickstream Analytics Integration</title>
+  </head>
+  <body>
+    <h1>Clickstream Analytics Example</h1>
+    <p>
+      Click the button to record an event using the Clickstream Analytics SDK.
+    </p>
+
+    <button id="recordEventButton">Record Event</button>
+
+    <!-- Include the stack9-web-analytics-sdk.js from the public/scripts folder -->
+    <script src="https://dev.uat.s9forms.com/scripts/s9tag.js"></script>
+
+    <script>
+      // Simulate the effect of useEffect for initializing the ClickstreamAnalytics SDK
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize ClickstreamAnalytics
+        ClickstreamAnalytics.init({
+          // isLogEvents: true, // Uncomment to log events to the console
+          appId: "ef4573ab-793c-4852-9b64-7ccc2b3f25f9",
+          sendMode: SendMode.Batch,
+          sendEventsInterval: 5000,
+          isTrackPageViewEvents: true,
+          isTrackUserEngagementEvents: true,
+          isTrackClickEvents: true,
+          isTrackSearchEvents: true,
+          isTrackScrollEvents: true,
+          isTrackPageLoadEvents: true,
+          isTrackAppStartEvents: true,
+          isTrackAppEndEvents: true,
+          pageType: PageType.SPA,
+          globalAttributes: {
+            tenantCode: "CODE",
+          },
+          endpoint:
+            "https://local.analytics.sandpit.dev-preview.net/events?source=website&", // Your server endpoint
+        });
+
+        // Event handler for button click
+        document
+          .getElementById("recordEventButton")
+          .addEventListener("click", function () {
+            ClickstreamAnalytics.record({
+              name: "http_request",
+              attributes: {
+                request_url: "test url",
+                request_meta: "dddd",
+              },
+            });
+
+            alert("Event recorded!");
+          });
+      });
+    </script>
+  </body>
+</html>
