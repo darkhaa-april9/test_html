@@ -40,6 +40,12 @@
           },
           endpoint:
             "https://local.analytics.sandpit.dev-preview.net/events?source=website&", // Your server endpoint
+          trackingOptions: {
+    pageView: true,
+    userEngagement: true,
+    clickEvents: true,
+    scrollEvents: true
+  }
         });
 
         // Event handler for button click
