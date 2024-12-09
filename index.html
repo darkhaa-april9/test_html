@@ -26,25 +26,20 @@
           sendMode: SendMode.Batch,
           sendEventsInterval: 5000,
           isTrackPageViewEvents: true,
-          isTrackUserEngagementEvents: true,
           isTrackClickEvents: true,
           isTrackSearchEvents: true,
           isTrackScrollEvents: true,
-          isTrackPageLoadEvents: true,
-          isTrackAppStartEvents: true,
-          isTrackAppEndEvents: true,
-          pageType: PageType.SPA,
           globalAttributes: {
             tenantCode: "CODE",
           },
           endpoint:
             "https://local.analytics.sandpit.dev-preview.net/events?source=website&", // Your server endpoint
           trackingOptions: {
-    pageView: true,
-    userEngagement: true,
-    clickEvents: true,
-    scrollEvents: true
-  }
+            pageView: true,
+            userEngagement: true,
+            clickEvents: true,
+            scrollEvents: true
+          }
         });
 
         // Event handler for button click
